@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ZarMath - პრობლემის მარტივი გადაჭრის გზა</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="../styles/stylesi.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>ZarMath</h1>
+        <nav>
+          <ul>
+            <li><a href="about-us.html">შესახებ</a></li>
+            <li><a href="calculator.html">კალკულატორი</a></li>
+            <li><a href="contact.html">კონტაქტი</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section id="hero">
+        <div class="container">
+          <h2>პრობლემა გაქვს?</h2>
+          <p>ZarMath დაგეხმარება ისწავლო! ამოხსნა! გაიმარტივო საქმე.</p>
+          <button onclick="getStarted()">ხელოვნური ინტელექტი</button>
+        </div>
+      </section>
+
+      <section id="features">
+        <div class="container">
+          <h2>ჩვენს საიტზე ნახავ...</h2>
+          <div class="features-list">
+            <div class="feature">
+              <h3>კალკულატორი</h3>
+              <p>ჩაწერე და ამოხსენი</p>
+            </div>
+            <div class="feature">
+              <h3>ხელოვნური ინტელექტი</h3>
+              <p>ხსნის ყველაფერს</p>
+            </div>
+            <div class="feature">
+              <h3>სწავლა</h3>
+              <p>ისწავლე მეტი: ფორმულები, ბიოგრაფია და კიდევ მეტი</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="how-it-works">
+        <div class="container">
+          <h2>როგორ მუშაობს</h2>
+          <ol>
+            <li>მარტივად</li>
+            <li>სწრაფად</li>
+            <li>ადამიანურად</li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="container">
+          <h2>მოგვწერეთ</h2>
+          <form id="contact-form">
+            <label for="name">სახელი:</label>
+            <input type="text" id="name" name="name" required />
+
+            <label for="email">მეილი:</label>
+            <input type="email" id="email" name="email" required />
+
+            <label for="message">შეტყობინება:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <button type="submit">გამოგზავნე შეტყობინება</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer id="footer-section">
+      <div class="footer-row">
+        <a href="https://geolab.edu.ge/"
+          ><img class="tbclogo" src="../images/tbc-logo.png" alt="logo"
+        /></a>
+        <p>made with geolab support :)</p>
+        <div class="footer-nav-links">
+          <ul>
+            <li>
+              <a href="#hero-section"></a>
+            </li>
+            <li>
+              <a href="#about-us">about</a>
+            </li>
+            <li>
+              <a href="#our-products">learn</a>
+            </li>
+            <li>
+              <a href="contact.html">contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

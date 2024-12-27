@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./math_solver/app.py" />
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <link rel="stylesheet" href="../styles/styles.css" />
+    <title>Math Solver</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f4f4f9;
+      }
+      .container {
+        text-align: center;
+        background: white;
+        padding: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+      }
+      input,
+      button {
+        margin: 10px 0;
+        padding: 10px;
+        width: 80%;
+        font-size: 16px;
+      }
+      button {
+        background: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      button:hover {
+        background: #0056b3;
+      }
+      #solution {
+        margin-top: 20px;
+        font-size: 18px;
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="sticky-bg">
+      <nav>
+        <div class="nav-links">
+          <a href="index.html" class="hero-link"
+            ><img
+              src="../images/logo.png"
+              alt="logo"
+              style="width: 62px; height: 62px"
+          /></a>
+          <div id="nav-links-sub">
+            <ul>
+              <li>
+                <a href="about-us.html">about</a>
+              </li>
+              <li>
+                <a href="learn.html">learn</a>
+              </li>
+              <li>
+                <a href="quiz.html">quiz</a>
+              </li>
+              <li><a href="calculator.html">calculator</a></li>
+              <li><a href="ai.html"></a></li>
+              <li>
+                <a href="contact.html">contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="container">
+      <h1>Math Solver</h1>
+      <input type="text" id="problem" placeholder="Enter a math problem" />
+      <button onclick="solveProblem()">Solve</button>
+      <div id="solution"></div>
+    </div>
+
+    <script>
+      async function solveProblem() {
+        const problem = document.getElementById("problem").value;
+        const solutionDiv = document.getElementById("solution");
+
+        if (!problem) {
+          solutionDiv.innerHTML = "Please enter a math problem!";
+          return;
+        }
+
+        solutionDiv.innerHTML = "Solving...";
+
+        // Send the problem to the backend
+        const response = await fetch("http://127.0.0.1:5000/solve", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ problem }),
+        });
+
+        const data = await response.json();
+        if (data.solution) {
+          solutionDiv.innerHTML = `Solution: ${data.solution}`;
+        } else {
+          solutionDiv.innerHTML = `Error: ${data.error}`;
+        }
+      }
+    </script>
+  </body>
+</html>
